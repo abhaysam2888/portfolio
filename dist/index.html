@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio | Abhay_Kumar</title>
+    <!-- output css link -->
+    <link rel="stylesheet" href="./build.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./portfolio favicon.png" type="image/x-icon">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- swiper js cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        /* scroll bar */
+        ::-webkit-scrollbar{
+            width:10px;
+        }
+        ::-webkit-scrollbar-track{
+            background:#120e16;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background: white;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #7000ff;
+        }
+        /* header scrolled css */
+        header.scrolled{
+            background-color: white;
+            z-index:10;
+            position: sticky;
+            top: 0px;
+        }
+        /* nav links scrolled css */
+        ol.scrolled{
+            color: black;
+        }
+        #sideBar.scrolled{
+            color: black;
+        }
+        /* nav links scrolled responsiveness */
+        @media screen and (max-width:410px) {
+            ol.scrolled{
+            color: white;
+            }
+        }
+        /*main card-1 reponsiveness */
+        @media screen and (max-width:420px) {
+            #cardCopy #cardtemp{
+                width: 360px;
+                height: 380px;
+                margin-top:20px;
+            }
+            #cardCopy{
+                padding: 0px 20px;
+            }
+            .card-img{
+                height:420px;
+            }
+            .hide-text{
+                font-size: medium;
+                font-weight: 550;
+            }
+            #card1-text{
+                font-size: 30px;
+            }
+        }
+        /* main btn */
+        #main-btn{
+            background-size:220%;
+            background-image:linear-gradient(120deg,transparent,transparent 50%,#8b31ff 0);
+            transition:all .3s ease-in-out;
+        }
+        #main-btn:active,#main-btn:hover{
+            background-position:100%;
+            box-shadow: 0 0 1rem #7000ff;
+        } 
+        
+        @media screen and (max-width:500px) {
+            #main-btn{
+            background-position:100%;
+            box-shadow: 0 0 1rem #7000ff;
+        }
+        }
+        
+        /*hc project card */
+        
+        .nft {
+            max-width: 300px;
+            border: 1px solid #ffffff22;
+            background-color: #282c34;
+            background: linear-gradient(0deg, #282c34 0%, rgba(17, 0, 32, 0.5) 100%);
+            box-shadow: 0 7px 20px 5px #00000088;
+            border-radius: 0.7rem;
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            overflow: hidden;
+            transition: 0.5s all;
+            display: none;
+        }
+
+        .nft .main {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .nft .main .tokenImage {
+            border-radius: 0.5rem;
+            max-width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+        .nft ::before {
+            position: fixed;
+            content: "";
+            box-shadow: 0 0 100px 40px #ffffff08;
+            top: -10%;
+            left: -100%;
+            transform: rotate(-45deg);
+            height: 60rem;
+            transition: 0.7s all;
+        }
+        @media screen and (min-width:500px) {
+            .nft:hover {
+            border: 1px solid #ffffff44;
+            box-shadow: 0 7px 50px 10px #000000aa;
+            transform: scale(1.015);
+            filter: brightness(1.3);
+        }
+        .nft:hover ::before {
+            filter: brightness(0.5);
+            top: -100%;
+            left: 200%;
+        }
+        }
+        /*ht project card */
+        
+        .nft2 {
+            max-width: 300px;
+            border: 1px solid #ffffff22;
+            background-color: #282c34;
+            background: linear-gradient(0deg, #282c34 0%, rgba(17, 0, 32, 0.5) 100%);
+            box-shadow: 0 7px 20px 5px #00000088;
+            border-radius: 0.7rem;
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            overflow: hidden;
+            transition: 0.5s all;
+            display: none;
+        }
+
+        .nft2 .main2 {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .nft2 .main2 .tokenImage2 {
+            border-radius: 0.5rem;
+            max-width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+        
+        @media screen and (min-width:500px) {
+            .nft2 ::before {
+            position: fixed;
+            content: "";
+            box-shadow: 0 0 100px 40px #ffffff08;
+            top: -10%;
+            left: -100%;
+            transform: rotate(-45deg);
+            height: 60rem;
+            transition: 0.7s all;
+        }
+        .nft2:hover {
+            border: 1px solid #ffffff44;
+            box-shadow: 0 7px 50px 10px #000000aa;
+            transform: scale(1.015);
+            filter: brightness(1.3);
+        }
+        .nft2:hover ::before {
+            filter: brightness(0.5);
+            top: -100%;
+            left: 200%;
+        }
+        }
+        /* html css card */
+        .html-css-card-container .nft{
+            display: block;
+        }
+        /* html tailwind card */
+        .html-tailwind-card-container .nft2{
+            display: block;
+        }
+        /* swiper */
+        .swiper {
+            width: 90%;
+            height: 100%;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-pagination{
+            top: 20rem;
+            position: absolute;
+        }
+        .swiper-pagination-bullet{
+            background-color:white;
+            margin-top:20px;
+        }
+        /*hts project card */
+        
+        .nft3 {
+            max-width: 300px;
+            border: 1px solid #ffffff22;
+            background-color: #282c34;
+            background: linear-gradient(0deg, #282c34 0%, rgba(17, 0, 32, 0.5) 100%);
+            box-shadow: 0 7px 20px 5px #00000088;
+            border-radius: 0.7rem;
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            overflow: hidden;
+            transition: 0.5s all;
+        }
+
+        .nft3 .main3 {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .nft3 .main3 .tokenImage3 {
+            border-radius: 0.5rem;
+            max-width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+        
+        @media screen and (min-width:500px) {
+            .nft3 ::before {
+            position: fixed;
+            content: "";
+            box-shadow: 0 0 100px 40px #ffffff08;
+            top: -10%;
+            left: -100%;
+            transform: rotate(-45deg);
+            height: 60rem;
+            transition: 0.7s all;
+        }
+        .nft3:hover {
+            border: 1px solid #ffffff44;
+            box-shadow: 0 7px 50px 10px #000000aa;
+            transform: scale(1.015);
+            filter: brightness(1.3);
+        }
+        .nft3:hover ::before {
+            filter: brightness(0.5);
+            top: -100%;
+            left: 200%;
+        }
+        }
+        /* main btn2 */
+        #main-btn2{
+            background-size:220%;
+            background-image:linear-gradient(120deg,transparent,transparent 50%,#8b31ff 0);
+            transition:all .3s ease-in-out;
+        }
+        #main-btn2:active,#main-btn2:hover{
+            background-position:100%;
+            box-shadow: 0 0 1rem #7000ff;
+        }
+        @media screen and (max-width:500px) {
+            #main-btn2{
+            background-position:100%;
+            box-shadow: 0 0 1rem #7000ff;
+        }  
+        }
+    </style>
+</head>
+<body>
+    <!-- header started -->
+    <header class="bg-[#120e16]">
+        <!-- nav started -->
+        <nav class="flex justify-evenly items-center h-24 max-[410px]:justify-between max-[400px]:h-16">
+            <!-- logo started -->
+            <div class="max-[410px]:px-5">
+                <a href="./index.html">
+                    <img loading="lazy" src="./assets/profile img.jpeg" alt="images" class="h-16 rounded-full max-[400px]:h-10">
+                </a>
+            </div>
+            <!-- nav links -->
+            <div class="max-[410px]:absolute top-24 max-[410px]:w-full max-[410px]:bg-[#120e16] hode max-[410px]:hidden max-[410px]:animate-[bounce_0.8s_ease-in-out] max-[400px]:top-16" id="navLinks">
+                <ol class="flex space-x-8 font-[550] max-[410px]:block max-[410px]:space-x-0 max-[410px]:text-center max-[410px]:space-y-6 max-[410px]:py-10 text-white" id="scrolledOl">
+                    <li>
+                        <a href="./index.html" class="hover:text-[rgb(159,85,255)]">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#cardCopy" class="hover:text-[rgb(159,85,255)]">SERVICES</a>
+                    </li>
+                    <li>
+                        <a href="#about-me" class="hover:text-[rgb(159,85,255)]">ABOUT ME</a>
+                    </li>
+                    <li class="max-[550px]:hidden max-[410px]:block">
+                        <a href="#Skills-section" class="hover:text-[rgb(159,85,255)]">SKILLS</a>
+                    </li>
+                    <li class="max-[700px]:hidden max-[410px]:block">
+                        <a href="#projects" class="hover:text-[rgb(159,85,255)] max-[410px]:block">PROJECTS</a>
+                    </li>
+                    <li class="max-[700px]:hidden max-[410px]:block">
+                        <a href="#contactme" class="hover:text-[rgb(159,85,255)] max-[410px]:block">CONTACT ME</a>
+                    </li>
+                </ol>
+            </div>
+            <!-- nav responsive bar -->
+            <div id="sideBar" class="hidden max-[410px]:block text-white max-[410px]:px-5">
+                <p class="text-5xl" id="bar">&#8801;</p>
+                <p class="text-5xl hidden" id="cross">&#215;</p>
+            </div>
+        </nav>
+    </header>
+    <!-- main started -->
+    <main>
+        <!-- main introduction -->
+        <div class="h-[100vh] flex justify-evenly items-center bg-[#120e16] flex-wrap max-[1044px]:justify-normal -space-x-10 max-[1044px]:-space-x-0 max-[1044px]:h-full max-[1044px]:space-y-20">
+
+            <div class="max-[1276px]:mt-20 max-[390px]:pl-5 max-[1044px]:pl-20">
+                <!-- main text -->
+                <div class="max-[350px]:-mt-10">
+                    <h1 class="font-bold">
+                        <span class="text-[rgb(159,85,255)] text-4xl max-[850px]:text-2xl">
+                         Hello! I'm
+                        </span> <br><br> 
+                         <span class="text-white text-[70px] max-[850px]:text-[40px] max-[310px]:text-[35px]">
+                             Abhay Kumar
+                         </span>
+                     </h1>
+                     <div id="typing-parent">
+                         <p class="font-mono text-white text-4xl max-[850px]:text-2xl">
+                             Frontend UI/UX Developer 
+                         </p>
+                         <p class="font-mono text-white text-4xl max-[850px]:text-2xl w-[500px] max-[1044px]:w-full h-24" id="typing-text2">
+                             <!-- text -->
+                         </p>
+                     </div>
+                </div>
+                <!-- social media links -->
+                <div class="flex space-x-7 text-white max-[850px]:text-[25px] text-[30px]">
+                    <div>
+                        <a href="mailto:abhaysam2888@gmail.com">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/abhay-verma-821699274/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/abhaysam2888" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                 <!-- button -->
+            <div class="text-white mt-10">
+                <button class="font-medium text-xl border-2 border-[#7000ff] px-5 py-2 rounded-lg max-[850px]:text-lg" id="main-btn">
+                    <a href="#contactme">
+                        Let's Talk
+                    </a>
+                </button>
+            </div>
+            </div>
+            <!-- main introduction image -->
+            <div class="w-[545px] h-[453px] animate-bounce flex justify-center items-center max-[1044px]:w-full max-[548px]:h-full">
+                <img src="./assets/main img.png" alt="images" class="w-[80%] max-[1044px]:mx-auto max-[1044px]:w-[545px]">
+            </div>
+        </div>
+        <!-- scetion 1 Services-->
+        <div class="mt-20 mb-20 text-center w-full">
+            <h2 class="text-pink-600 text-2xl font-semibold">WHAT I DO</h2>
+            <!-- alternate animation -->
+            <div class="mx-auto w-24 relative">
+                <hr class="w-24 mx-auto mt-[13px] absolute bg-gray-300 h-[1.5px]">
+                <marquee behavior="alternate">
+                    <i class="fa-solid fa-circle text-pink-600 text-[10px]"></i>
+                </marquee>
+            </div>
+            <!-- text -->
+            <div>
+                <h3 class="text-5xl font-semibold max-sm:text-4xl">
+                    Services That Can I Offer
+                </h3>
+            </div>
+        </div>
+        <!-- card-1 container -->
+        <div id="cardCopy" class="flex" style="flex-wrap: wrap;">
+            <!-- clone cards -->
+        </div>
+        <!-- card-1 -->
+        <div class="hidden">
+            <div class="w-[400px] h-[380px]  rounded-xl relative mb-10 text-white shadow-2xl mx-auto card1 bg-black" id="cardtemp">
+                <div>
+                    <div id="image-parent">  
+                          <!-- image -->
+                        <img src="" alt="images" class="w-[400px] h-[380px] object-cover  rounded-xl brightness-50 card-img">
+                    </div>
+                    <div class="w-20 h-20 flex justify-center items-center bg-pink-600 rounded-full absolute -top-10 left-10 icon1-bg-container">
+                        <!-- icon image -->
+                        <img src="" alt="images" class="w-12 h-12 invert icon1-bg">
+                    </div>
+                    <div class="absolute top-20  text-4xl font-semibold left-10" id="card1-text">
+                        <!-- title -->
+                    </div>
+                    <div class="absolute top-44 text-xl font-medium left-10 w-fit overflow-hidden">
+                        <p class="w-[80%] hide-text" style="transform: translateY(200px);">
+                            <!-- description -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About me section started -->
+        <div class="mt-20 bg-[#120e16] text-gray-700 px-10 text-5xl w-full h-full max-md:text-4xl max-sm:text-3xl max-[400px]:text-xl max-[350px]:px-5" id="about-me">
+            <div class="w-full h-full py-20 text-center">
+                <!-- alternate animation -->
+                <div class="text-center w-full">
+                    <h2 class="text-pink-600 text-2xl font-semibold">ABOUT ME</h2>
+                    <div class="mx-auto w-24 relative -mt-7">
+                        <hr class="w-24 mx-auto mt-[36px] absolute bg-gray-300 h-[1.5px]">
+                        <marquee behavior="alternate">
+                            <i class="fa-solid fa-circle text-pink-600 text-[10px] max-md:mt-8"></i>
+                        </marquee>
+                    </div>
+                </div>
+                <p>
+                    <span class="hover:text-white">
+                    I am a <span class="text-[#7000ff]">self taught</span> web developer with experience in developing websites for small businesses and startups. My <span class="text-[#7000ff]">passions</span> are to create beautiful <span class="text-[#7000ff]">designs</span>.
+                    </span>
+                    <br><br>
+                    <span class="hover:text-white">
+                    As a talented <span class="text-[#7000ff]">frontend</span> developer and designer, a creative virtuoso who paints the digital canvas with <span class="text-[#7000ff]">pixels</span> and <span class="text-[#7000ff]">codes</span>. A passion for seamless user experiences, I bring websites and applications to life, transforming ideas into visually stunning and <span class="text-[#7000ff]">interactive</span> masterpieces.
+                    </span>
+                    <br><br>
+                    <p class="font-mono">
+                        <span class="text-[#7000ff] font-mono"> My Words!!</span>
+                    </p>
+                    <span class="hover:text-white">
+                    My <span class="text-[#7000ff] ">fingers</span> dance gracefully on the keyboard, weaving together the intricate tapestry of colors, <span class="text-[#7000ff] ">typography</span>, and layout, creating a beautiful <span class="text-[#7000ff] ">site.</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- Skills section started -->
+        <div class="bg-[#160e2a] border border-[#160e2a] relative h-full" id="Skills-section">
+            <div class="rounded-md bg-gradient-to-t from-cyan-400 to-purple-600 p-[2.5px] mr-3 flex w-fit mt-32  rounded-r-full max-[450px]:rounded-r-2xl mb-20 -ml-1 max-[450px]:w-full">
+                <div class="rounded-md bg-[#120e16] w-full h-full rounded-r-full max-[450px]:rounded-r-2xl -ml-1 px-10 max-[450px]:px-3 max-[450px]:text-center">
+                    <!-- my skills text -->
+                    <div class="mt-20 mb-20">
+                        <h2 class="text-5xl font-semibold text-[#7408ff]">My Skills</h2>
+                        <p class="capitalize text-white text-3xl mt-5 w-[600px] max-md:w-full">I like to take resposibility to craft user experience using modern frontend architecture.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- languages card -->
+            <div class="rounded-md bg-gradient-to-t from-cyan-400 to-purple-600 p-[2.5px] absolute flex w-fit rounded-l-full max-md:rounded-l-2xl mb-20 max-[450px]:w-full right-0 max-[450px]:pl-1 pl-2 max-[1040px]:ml-3">
+                <div class="rounded-md bg-[#120e16] w-full h-full rounded-l-full max-md:rounded-l-2xl px-10 max-[657px]:px-5 max-[450px]:px-3 max-[450px]:text-center">
+                    <div class="text-white text-3xl mt-16 mb-5 ml-20 max-[657px]:ml-0 max-[997px]:ml-40">
+                        <p class="text-[#7408ff] font-semibold">
+                            Languages and Tools:
+                        </p>
+                    </div>
+                    <div class="skills-cards-container flex flex-wrap items-center space-x-5 mb-16 ml-20 justify-end max-md:justify-center max-[997px]:space-y-5 max-md:ml-0">
+                        <!-- html card -->
+                        <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden max-[997px]:mt-5 ml-5" id="skills-cards">
+                            <img src="./assets/html-5.png" alt="images" class="w-32 invert hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                        </div>
+                        <!-- css card -->
+                        <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                            <img src="./assets/css-3.png" alt="images" class="w-32 invert hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                        </div>
+                        <!-- js card -->
+                        <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                            <img src="./assets/javascript.png" alt="images" class="w-32 hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                        </div>
+                        <!-- vite -->
+                        <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                            <img src="./assets/icons8-vite-480.png" alt="images" class="w-32 hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                        </div>
+                        <!-- Regex -->
+                        <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                            <div class="bg-blue-950 p-5 w-[80%] hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                                <img src="./assets/regex_icon_132036.png" alt="images" class="w-32 invert">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- liberaries, framework and others cards -->
+            <div class="rounded-md bg-gradient-to-t from-cyan-400 to-purple-600 p-[2.5px] mr-3 flex mt-[550px]  rounded-r-full mb-20 -ml-1 w-fit max-[1017px]:mt-[700px] max-[557px]:mt-[1000px] max-[371px]:mt-[80rem] max-[668px]:rounded-r-2xl">
+                <div class="rounded-md bg-[#120e16] h-full rounded-r-full -ml-1 w-fit max-[668px]:rounded-r-2xl">
+                    <!-- my skills text -->
+                    <div class="mt-10 mb-20">
+                        <h2 class="text-2xl font-semibold text-[#7408ff] ml-10 pr-5 max-[668px]:text-center max-[668px]:ml-5">LIBRARIES, FRAMEWORKS AND OTHERS:</h2>
+                        <div class="skills-cards-container flex flex-wrap items-center space-x-5 mb-16 mt-10 pr-20 pl-5 max-[961px]:space-y-5 max-[668px]:pr-5 max-[961px]:justify-center">
+                            <!-- Tailwind card -->
+                            <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden ml-5 max-[961px]:mt-5" id="skills-cards">
+                                <img src="./assets/pngwing.com.png" alt="images" class="w-32 hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                            </div>
+                            <!-- React card -->
+                            <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                                <img src="./assets/react.png" alt="images" class="w-32 hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                            </div>
+                            <!-- api card -->
+                            <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                                <img src="./assets/api.png" alt="images" class="w-32 hover:scale-75 invert" style="transition: all 0.4s ease-in-out;">
+                            </div>
+                            <!-- git card -->
+                            <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                                <img src="./assets/git.png" alt="images" class="w-32 hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                            </div>
+                            <!-- github card -->
+                            <div class="w-[150px] h-[165px] flex justify-center items-center flex-col bg-[#392f4a12] rounded-lg border border-[#392f4a8a] relative overflow-hidden" id="skills-cards">
+                                    <img src="./assets/github.png" alt="images" class="w-32 invert hover:scale-75" style="transition: all 0.4s ease-in-out;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Projects Section Started -->
+        <div class="bg-[#120e16] w-full h-full pt-10 pb-20" id="projects">
+            <div class="text-white ml-20 max-[590px]:ml-0">
+                <p class="text-3xl w-[500px] max-[590px]:w-fit max-[590px]:text-center">
+                    <span class="text-4xl font-bold text-[#7408ff]">
+                        My Projects
+                    </span>
+                    <br><br>
+                    "Through dedication and innovation, my projects come to life, weaving creativity and purpose into a tapestry of accomplishment."
+                </p>
+            </div>
+            <!-- html css card -->
+            <div class="ml-20 mt-20 max-[590px]:ml-0">
+                <h2 class="text-[#7408ff] text-3xl font-bold max-[590px]:text-center">HTML, CSS Projects</h2>
+            </div>
+            <div class="flex flex-wrap items-center  mx-auto w-fit html-css-card-container mt-10 max-[1480px]:space-y-5 max-[1360px]:justify-center space-x-10 max-[480px]:space-x-0">
+            </div>
+            <!-- html tailwind card -->
+            <div class="ml-20 mt-20 max-[590px]:ml-0 mb-10">
+                <h2 class="text-[#7408ff] text-3xl font-bold max-[590px]:text-center">HTML, Tailwind Projects</h2>
+            </div>
+            <!-- hs card template -->
+            <div class="nft html-css-card hidden max-[1460px]:mt-5 max-[1460px]:ml-10 max-[480px]:ml-0">
+                <div class='main'>
+                    <img class='hc-cardImg tokenImage' src="./assets/template 1.png" alt="images" />
+                    <h2 class="text-xl font-semibold text-white my-4 hc-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">NFT Landing Page</h2>
+                    <ul class="text-gray-200 space-y-2 font-semibold">
+                        <li>Tech Stack: <span class="text-yellow-600 hc-techStack"> HTML, Tailwind CSS.</span></li>
+                        <li>Live link: 
+                            <a href="" class="text-blue-800 hc-card-liveLink" target="_blank">Click Here</a>
+                        </li>
+                        <li>Created by: Abhay kumar</li>
+                        <li>GitHub: 
+                            <a href="" class="text-blue-800 hc-card-github" target="_blank">Click here</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <!-- swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper html-tailwind-card-container">
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+            <!-- ht card template -->
+            <div class="nft2 html-tailwind-card hidden">
+                <div class='main2'>
+                    <img class='ht-cardImg tokenImage2' src="./assets/template 1.png" alt="images" />
+                    <h2 class="text-xl font-semibold text-white my-4 ht-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">NFT Landing Page</h2>
+                    <ul class="text-gray-200 space-y-2 font-semibold">
+                        <li>Tech Stack: <span class="text-yellow-600 ht-techStack"> HTML, Tailwind CSS.</span></li>
+                        <li>Live link: 
+                            <a href="" class="text-blue-800 ht-card-liveLink" target="_blank">Click Here</a>
+                        </li>
+                        <li>Created by: Abhay kumar</li>
+                        <li>GitHub: 
+                            <a href="" class="text-blue-800 ht-card-github" target="_blank">Click here</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- hts cards -->
+            <!-- html, css, javascript card text -->
+            <div class="mt-20 ml-20 max-[720px]:ml-0 max-[720px]:text-center">
+                <h2 class="text-[#7408ff] text-3xl font-bold">HTML, TAILWIND CSS, Javascript Projects</h2>
+            </div>
+            <div class="flex flex-wrap items-center mx-auto w-fit html-css-card-container mt-10 max-[1480px]:space-y-5 max-[1360px]:justify-center space-x-10 max-[480px]:space-x-0">
+                <!-- hts card 1 -->
+                <div class="nft3 html-tailwind-card block max-[640px]:ml-10 max-[500px]:ml-0 max-[1320px]:ml-10">
+                    <div class='main3'>
+                        <img class='ht-cardImg tokenImage3' src="./assets/Screenshot 2023-10-02 134520.png" alt="images" />
+                        <h2 class="text-xl font-semibold text-white my-4 ht-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">News App</h2>
+                        <ul class="text-gray-200 space-y-2 font-semibold">
+                            <li>Tech Stack: <span class="text-yellow-600 ht-techStack"> HTML, Tailwind CSS, Javascript</span></li>
+                            <li>Live link: 
+                                <a href="https://newsers.netlify.app/" class="text-blue-800 ht-card-liveLink" target="_blank">Click Here</a>
+                            </li>
+                            <li>Created by: Abhay kumar</li>
+                            <li>GitHub: 
+                                <a href="https://github.com/abhaysam2888/News-Website.git" class="text-blue-800 ht-card-github" target="_blank">Click here</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- hts card2 -->
+                <div class="nft3 html-tailwind-card block">
+                    <div class='main3'>
+                        <img class='ht-cardImg tokenImage3' src="./assets//Screenshot 2023-10-02 134447.png" alt="images" />
+                        <h2 class="text-xl font-semibold text-white my-4 ht-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">Online Banking App</h2>
+                        <ul class="text-gray-200 space-y-2 font-semibold">
+                            <li>Tech Stack: <span class="text-yellow-600 ht-techStack"> HTML, Tailwind CSS, Javascript</span></li>
+                            <li>Live link: 
+                                <a href="https://tichkule-bank-of-trust.netlify.app/" class="text-blue-800 ht-card-liveLink" target="_blank">Click Here</a>
+                            </li>
+                            <li>Created by: Abhay kumar</li>
+                            <li>GitHub: 
+                                <a href="https://github.com/abhaysam2888/Virtual-bank-.git" class="text-blue-800 ht-card-github" target="_blank">Click here</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- hts card3 -->
+                <div class="nft3 html-tailwind-card block">
+                    <div class='main3'>
+                        <img class='ht-cardImg tokenImage3' src="./assets/Screenshot 2024-03-01 124223.png" alt="images" />
+                        <h2 class="text-xl font-semibold text-white my-4 ht-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">Modern movie site</h2>
+                        <ul class="text-gray-200 space-y-2 font-semibold">
+                            <li>Tech Stack: <span class="text-yellow-600 ht-techStack"> HTML, Tailwind CSS, Javascript</span></li>
+                            <li>Live link: 
+                                <a href="https://modern-movie-site.netlify.app/" class="text-blue-800 ht-card-liveLink" target="_blank">Click Here</a>
+                            </li>
+                            <li>Created by: Abhay kumar</li>
+                            <li>GitHub: 
+                                <a href="https://github.com/abhaysam2888/modern-movie-site.git" class="text-blue-800 ht-card-github" target="_blank">Click here</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- hts card4 -->
+                <div class="nft3 html-tailwind-card block max-[1320px]:">
+                    <div class='main3'>
+                        <img class='ht-cardImg tokenImage3' src="./assets/weather app.png" alt="images" />
+                        <h2 class="text-xl font-semibold text-white my-4 ht-heading h-[34px] whitespace-nowrap overflow-hidden text-ellipsis">Weather Web App</h2>
+                        <ul class="text-gray-200 space-y-2 font-semibold">
+                            <li>Tech Stack: <span class="text-yellow-600 ht-techStack"> HTML, Tailwind CSS, Javascript</span></li>
+                            <li>Live link: 
+                                <a href="https://weather-feature-app.netlify.app/" class="text-blue-800 ht-card-liveLink" target="_blank">Click Here</a>
+                            </li>
+                            <li>Created by: Abhay kumar</li>
+                            <li>GitHub: 
+                                <a href="https://github.com/abhaysam2888/Weather-app.git" class="text-blue-800 ht-card-github" target="_blank">Click here</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact form -->
+        <div class="w-full h-full -mt-10 bg-[#120e16]" id="contactme">
+            <!-- contact text -->
+            <div class="text-center">
+                <h2 class="text-[#7408ff] text-5xl font-bold  mb-10 max-sm:text-4xl">CONTACT ME</h2>
+            </div>
+            <form action="https://formspree.io/f/myyqbpez"
+            method="POST" class="space-y-7 mx-auto w-fit">
+                <div class="flex space-x-10 max-sm:flex-col max-sm:justify-center max-sm:space-x-0 max-sm:space-y-10">
+                    <div>
+                        <input type="text" name="username" id="" placeholder="name" required class="bg-transparent border-2 text-white border-pink-600 rounded-sm pl-2 h-12 w-72 outline-none max-sm:w-full">
+                    </div>
+                    <div>
+                        <input type="email" name="email" id="" placeholder="user@gmail.com" required class="bg-transparent border-2 text-white border-pink-600 rounded-sm pl-2 h-12 outline-none w-72 max-sm:w-full">
+                    </div>
+                </div>
+                <div>
+                    <input type="number" name="phone number" id="" 
+                    placeholder="Phone Number" class="bg-transparent border-2 text-white border-pink-600 rounded-sm pl-2 h-12 w-[616px] outline-none max-sm:w-full">
+                </div>
+                <div>
+                    <textarea name="textarea" id="" cols="30" rows="10" placeholder="Message" required class="bg-transparent pl-2 border-2 text-white border-pink-600 rounded-sm outline-none w-[616px] h-40 max-sm:w-full"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="font-medium text-xl border-2 border-[#7000ff] px-5 py-2 rounded-lg max-[850px]:text-lg text-white mb-10" id="main-btn2">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!-- footer started -->
+    <footer>
+        <!-- footer text -->
+        <div class="bg-pink-700">
+            <div class="h-16 text-white items-center flex justify-center">
+            <p class="text-xl">&#169; Created By Abhay Kumar 2023</p>
+        </div>
+        </div>
+    </footer>
+</body>
+<!-- script link -->
+<script src="./script.js" type="module"></script>
+<!-- swiper js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</html>
